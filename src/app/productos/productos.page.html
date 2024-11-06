@@ -1,13 +1,39 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>productos</ion-title>
+    <ion-header fill="solid">
+      <ion-title  fill="solid" class="ion-text-center">Catalogo</ion-title>
+    </ion-header>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">productos</ion-title>
+      <ion-title size="large">Productos</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <!-- Botón de Salir -->
+  <ion-button  fill= "clear" expand="fill" (click)="salir()">Salir</ion-button>
+
+  <ion-list *ngIf="productos.productos">
+    <ion-card-content *ngFor="let prod of productos.productos">
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img [src]="prod.thumbnail" />
+        </ion-thumbnail>
+        
+        <br/> 
+        <ion-grid>
+          <ion-row><ion-label style="color: lightgray;">{{prod.title}}</ion-label></ion-row>
+          <ion-row> <ion-item style="color: #66b2ff;">$ {{prod.price}}</ion-item> </ion-row>
+        <ion-row> <ion-item style="color: #66cdaa;">{{prod.discountPercentage}} %</ion-item></ion-row>
+        </ion-grid>
+        
+       
+        
+      </ion-item>
+    </ion-card-content>
+  </ion-list>
 </ion-content>
